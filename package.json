@@ -27,7 +27,11 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/react": "^9.4.0"
+    "@nrwl/react": "^9.4.0",
+    "react-is": "16.13.1",
+    "styled-components": "5.1.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
@@ -38,6 +42,26 @@
     "prettier": "2.0.4",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~3.8.3"
+    "typescript": "~3.8.3",
+    "@nrwl/eslint-plugin-nx": "9.4.0",
+    "@typescript-eslint/parser": "2.19.2",
+    "@typescript-eslint/eslint-plugin": "2.19.2",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "4.0.2",
+    "@nrwl/jest": "9.4.0",
+    "jest": "25.2.3",
+    "@types/jest": "25.1.4",
+    "ts-jest": "25.2.1",
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.9.6",
+    "@babel/preset-typescript": "7.9.0",
+    "@babel/preset-react": "7.9.4",
+    "babel-jest": "25.1.0",
+    "@types/styled-components": "5.1.0",
+    "@types/react-is": "16.7.1",
+    "babel-plugin-styled-components": "1.10.7"
   }
 }
