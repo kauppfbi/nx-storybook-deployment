@@ -51,4 +51,4 @@ jobs:
           yarn affected:build --base="$BASE_SHA"
       - name: Build Storybook
         run: |
-        yarn nx run ui-header:build-storybook
+          yarn nx run ui-header:build-storybook
