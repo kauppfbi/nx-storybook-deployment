@@ -44,8 +44,11 @@ jobs:
           git fetch origin
           [[ "$GITHUB_REF" =~ "refs/heads/master" ]] && export BASE_SHA="origin/master~1" ||  export BASE_SHA="origin/master"
           yarn affected:e2e --base="$BASE_SHA"
-      - name: Build Packages
+      - name: Build Packages & Apps
         run: |
           git fetch origin
           [[ "$GITHUB_REF" =~ "refs/heads/master" ]] && export BASE_SHA="origin/master~1" ||  export BASE_SHA="origin/master"
           yarn affected:build --base="$BASE_SHA"
+      - name: Build Storybook
+        run: |
+        yarn nx run ui-header:build-storybook
