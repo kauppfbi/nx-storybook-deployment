@@ -15,7 +15,10 @@
               "libs/ui/header/tsconfig.lib.json",
               "libs/ui/header/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/header/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/header/**/*"
+            ]
           }
         },
         "test": {
@@ -24,7 +27,10 @@
             "jestConfig": "libs/ui/header/jest.config.js",
             "tsConfig": "libs/ui/header/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/libs/ui/header"
+          ]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -54,7 +60,10 @@
             "ci": {
               "quiet": true
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -80,8 +89,13 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": ["apps/ui-header-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ui-header-e2e/**/*"]
+            "tsConfig": [
+              "apps/ui-header-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ui-header-e2e/**/*"
+            ]
           }
         }
       }
@@ -110,7 +124,9 @@
               "apps/test-app/src/favicon.ico",
               "apps/test-app/src/assets"
             ],
-            "styles": ["apps/test-app/src/styles.scss"],
+            "styles": [
+              "apps/test-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -142,7 +158,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -168,7 +187,10 @@
               "apps/test-app/tsconfig.app.json",
               "apps/test-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/test-app/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/test-app/**/*"
+            ]
           }
         },
         "test": {
@@ -178,7 +200,10 @@
             "tsConfig": "apps/test-app/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "apps/test-app/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/apps/test-app"
+          ]
         }
       }
     },
@@ -203,8 +228,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/test-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/test-app-e2e/**/*"]
+            "tsConfig": [
+              "apps/test-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/test-app-e2e/**/*"
+            ]
           }
         }
       }
