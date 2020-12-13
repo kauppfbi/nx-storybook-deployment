@@ -31,6 +31,13 @@
     "ui-header-e2e": {
       "tags": [],
       "implicitDependencies": ["ui-header"]
+    },
+    "test-app": {
+      "tags": []
+    },
+    "test-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["test-app"]
     }
   }
 }
