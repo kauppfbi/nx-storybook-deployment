@@ -15,10 +15,7 @@
               "libs/ui/header/tsconfig.lib.json",
               "libs/ui/header/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/header/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui/header/**/*"]
           }
         },
         "test": {
@@ -28,9 +25,7 @@
             "tsConfig": "libs/ui/header/tsconfig.spec.json",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/header"
-          ]
+          "outputs": ["coverage/libs/ui/header"]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -61,9 +56,7 @@
               "quiet": true
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -89,13 +82,8 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": [
-              "apps/ui-header-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ui-header-e2e/**/*"
-            ]
+            "tsConfig": ["apps/ui-header-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/ui-header-e2e/**/*"]
           }
         }
       }
@@ -124,9 +112,7 @@
               "apps/test-app/src/favicon.ico",
               "apps/test-app/src/assets"
             ],
-            "styles": [
-              "apps/test-app/src/styles.scss"
-            ],
+            "styles": ["apps/test-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -159,9 +145,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -187,10 +171,7 @@
               "apps/test-app/tsconfig.app.json",
               "apps/test-app/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/test-app/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/test-app/**/*"]
           }
         },
         "test": {
@@ -201,9 +182,7 @@
             "passWithNoTests": true,
             "setupFile": "apps/test-app/src/test-setup.ts"
           },
-          "outputs": [
-            "coverage/apps/test-app"
-          ]
+          "outputs": ["coverage/apps/test-app"]
         }
       }
     },
@@ -228,13 +207,122 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/test-app-e2e/tsconfig.e2e.json"
+            "tsConfig": ["apps/test-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/test-app-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "new-app": {
+      "projectType": "application",
+      "root": "apps/new-app",
+      "sourceRoot": "apps/new-app/src",
+      "prefix": "kauppfbi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/new-app",
+            "index": "apps/new-app/src/index.html",
+            "main": "apps/new-app/src/main.ts",
+            "polyfills": "apps/new-app/src/polyfills.ts",
+            "tsConfig": "apps/new-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/new-app/src/favicon.ico",
+              "apps/new-app/src/assets"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/test-app-e2e/**/*"
+            "styles": ["apps/new-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/new-app/src/environments/environment.ts",
+                  "with": "apps/new-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "new-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "new-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "new-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/new-app/src/**/*.ts",
+              "apps/new-app/src/**/*.html"
             ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/new-app"],
+          "options": {
+            "jestConfig": "apps/new-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "new-app-e2e": {
+      "root": "apps/new-app-e2e",
+      "sourceRoot": "apps/new-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/new-app-e2e/cypress.json",
+            "tsConfig": "apps/new-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "new-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "new-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/new-app-e2e/**/*.{js,ts}"]
           }
         }
       }

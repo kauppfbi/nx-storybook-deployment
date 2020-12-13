@@ -30,18 +30,21 @@
     },
     "ui-header-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "ui-header"
-      ]
+      "implicitDependencies": ["ui-header"]
     },
     "test-app": {
       "tags": []
     },
     "test-app-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "test-app"
-      ]
+      "implicitDependencies": ["test-app"]
+    },
+    "new-app": {
+      "tags": []
+    },
+    "new-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["new-app"]
     }
   },
   "affected": {
